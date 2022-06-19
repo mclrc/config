@@ -1,0 +1,14 @@
+*
+!.gitignore
+!i3/
+!i3/*
+!nvim/
+!nvim/*
+!alacritty/
+!alacritty/*
+!gtk-3.0/
+!gtk-3.0/*
+!rofi/
+!rofi/*
+!dunst/
+!dunst/*

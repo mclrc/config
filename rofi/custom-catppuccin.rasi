@@ -1,0 +1,61 @@
+* {
+	background-color: #24273A;
+	border-color: #303446;
+	foreground: #C7CFF1;
+	selected-background: #303446;
+	text-color: @foreground;
+}
+
+window {
+	border: 1 1 0 1;
+	border-color: @border-color;
+	location: south;
+	height: 40%;
+	width: 700px;
+}
+
+inputbar {
+	border: 0 0 1px 0;
+	children: [prompt,entry];
+}
+
+prompt {
+	padding: 16px;
+	border: 0 1px 0 0;
+	border-color: @border-color;
+	text-color: @normal-foreground;
+	background-color: #24273A;
+	margin: 0 0 -2px 0;
+}
+
+textbox {
+	background-color: @background;
+	border: 0 0 1px 0;
+	border-color: @border-color;
+	padding: 8px 16px;
+}
+
+entry {
+	padding: 16px;
+}
+
+listview {
+	cycle: false;
+	margin: -2px 0 0 0;
+	scrollbar: false;
+}
+
+element {
+	padding: 16px;
+	background-color: #24273A;
+}
+
+element selected {
+	background-color: @selected-background;
+	text-color: @selected-foreground;
+	background: @selected-background;
+}
+
+element-text selected {
+	background-color: @selected-background;
+}
