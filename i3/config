@@ -23,12 +23,12 @@ gaps outer 0
 gaps inner 10
 set $mod Mod4
 
-exec --no-startup-id albert
-exec --no-startup-id ./.screenlayout/default.sh
+exec --no-startup-id ~/.config/screenlayout.sh
+exec --no-startup-id feh --bg-fill /usr/share/pixmaps/rocket.png
 # exec --no-startup-id xautolock -time 20 -locker 'i3lock -c 000000'
-exec --no-startup-id /home/pixl/Scripts/rgb.sh &
+# exec --no-startup-id /home/pixl/Scripts/rgb.sh &
 exec --no-startup-id dunst
-exec --no-startup-id sleep 4 && feh --bg-fill /usr/share/pixmaps/yosemite.png
+# exec --no-startup-id sleep 4 && feh --bg-fill /usr/share/pixmaps/yosemite.png
 
 bindsym $mod+BackSpace exec --no-startup-id i3lock -c 000000
 
@@ -56,6 +56,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Start gnome-keyring
+exec --no-startup-id dbus-update-activation-environment --all
+exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -68,7 +72,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec termite -e /bin/zsh
-bindsym $mod+Return exec alacritty -e /bin/zsh
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill

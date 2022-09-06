@@ -1,6 +1,6 @@
 configuration {
  modi: "window,drun,ssh,combi";
- font: "inconsolata 9";
+ font: "inconsolata 10";
  combi-modi: "window,run,drun,ssh";
  icon-theme: "Papirus";
  terminal: "termite";

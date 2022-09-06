@@ -1,9 +1,10 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'neoclide/coc.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
@@ -38,7 +39,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'itchyny/lightline.vim'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'dracula/vim', {'as': 'dracula'}
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 Plug 'neoclide/coc-vetur'
 Plug 'tpope/vim-surround'
@@ -57,6 +57,9 @@ Plug 'mattn/emmet-vim'
 
 " CSS color previews
 Plug 'ap/vim-css-color'
+
+" Leetcode in nvim
+Plug 'ianding1/leetcode.vim'
 call plug#end()
 
 if $TERM == "xterm-256color"
@@ -78,6 +81,7 @@ set number
 inoremap < <
 inoremap > >
 set smartindent
+set clipboard+=unnamedplus
 
 " Ctrl+p file search
 map <C-p> :CtrlP
@@ -90,6 +94,15 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " Emmet config
 " let g:user_emmet_leader_key='<C-left>'
+
+" Leetcode binds
+nnoremap <leader>ml :LeetCodeList<cr>
+nnoremap <leader>mt :LeetCodeTest<cr>
+nnoremap <leader>ms :LeetCodeSubmit<cr>
+nnoremap <leader>mi :LeetCodeSignIn<cr>
+let g:leetcode_browser = 'chrome'
+let g:leetcode_solution_filetype = 'rust'
+let g:leetcode_hide_paid_only = 1
 
 autocmd BufWritePre *.rs :Autoformat
 let g:rust_recommended_style = 0
@@ -143,7 +156,7 @@ local opts = {
         autoSetHints = true,
         hover_with_actions = true,
         inlay_hints = {
-            show_parameter_hints = false,
+            show_parameter_hints = true,
             parameter_hints_prefix = "",
             other_hints_prefix = "",
         },
